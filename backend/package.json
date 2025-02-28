@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A backend for a finencial services project",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Samir kumar Barman",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.11.0"
+  }
+}
