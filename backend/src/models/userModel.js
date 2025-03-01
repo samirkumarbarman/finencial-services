@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcryptjs from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 const SALT_ROUND = 10;
 
@@ -39,8 +39,8 @@ userSchema.pre = ('save', async function (next){
         return next;
     }
     try {
-        const salt = await bcryptjs.genSalt(SALT_ROUND);
-        this.password = await bcryptjs.hash(this.password, salt);
+        const salt = await bcrypt.genSalt(SALT_ROUND);
+        this.password = await bcrypt.hash(this.password, salt);
     } catch (error) {
         next(error);
     }
@@ -48,7 +48,7 @@ userSchema.pre = ('save', async function (next){
 
 //Compare Hash password
 userSchema.methods.comparePassword = async function (password) {
-    return await bcryptjs.compare(password, this.password);
+    return await bcrypt.compare(password, this.password);
 };
 
 
